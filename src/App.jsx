@@ -131,7 +131,7 @@ function HeroSection() {
 
   return (
     <>
-      <main className="hero glass fade-in">
+      <main className="hero fade-in">
 
         <div className="section-badge">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
@@ -171,7 +171,7 @@ function HeroSection() {
 
 function ProjectsSection() {
   return (
-    <section className="glass fade-in">
+    <section className="fade-in">
       <div className="section-wrapper">
         <h2 className="section-title">My Work 🛠️</h2>
         <div className="projects-list">
@@ -213,7 +213,7 @@ function ProjectsSection() {
 
 function AchievementsSection() {
   return (
-    <section className="glass fade-in">
+    <section className="fade-in">
       <div className="section-wrapper">
         <h2 className="section-title">Achievements 🏆</h2>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
@@ -248,7 +248,7 @@ function AchievementsSection() {
 
 function ContactSection() {
   return (
-    <section className="glass fade-in">
+    <section className="fade-in">
       <div className="contact-wrapper">
         <h2 className="section-title">Let's connect 🤝</h2>
         <p className="contact-desc">
@@ -273,7 +273,7 @@ function ContactSection() {
 
 function SkillsSection() {
   return (
-    <section className="glass fade-in">
+    <section className="fade-in">
       <div className="section-wrapper">
         <h2 className="section-title">Technical Skills 🛠️</h2>
         <div className="skills-grid">
