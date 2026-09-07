@@ -292,6 +292,11 @@ button, a {
   color: var(--bg-white);
 }
 
+.button-alt.is--green .button-alt__text-wrap {
+  background: #1DBF73;
+  color: var(--bg-white);
+}
+
 .button-alt__icon-wrap {
   display: flex;
   align-items: center;
@@ -847,7 +852,76 @@ button, a {
   justify-content: space-between;
 }
 
+/* ==========================================================================
+   MARQUEE BANNER TAPE (High Voltage Ticker)
+   ========================================================================== */
+.marquee-wrap {
+  background: var(--ink-black);
+  color: var(--yellow-hero);
+  border-top: 3px solid var(--ink-black);
+  border-bottom: 3px solid var(--ink-black);
+  overflow: hidden;
+  padding: 0.9rem 0;
+  user-select: none;
+  white-space: nowrap;
+  position: relative;
+  z-index: 20;
+  width: 100%;
+}
 
+.marquee-track {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+  animation: marqueeScroll 32s linear infinite;
+}
+
+.marquee-wrap:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+.marquee-group {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding-right: 1.5rem;
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  flex-shrink: 0;
+}
+
+.star-glyph {
+  color: var(--magenta-primary);
+  font-size: 1.25rem;
+  display: inline-block;
+  line-height: 1;
+}
+
+@keyframes marqueeScroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 768px) {
+  .marquee-wrap {
+    padding: 0.75rem 0;
+  }
+  .marquee-group {
+    font-size: 0.95rem;
+    gap: 1.15rem;
+    padding-right: 1.15rem;
+  }
+  .star-glyph {
+    font-size: 1.05rem;
+  }
+}
 
 /* ==========================================================================
    PROJECT DROPS SECTION ("Our Books" Style)
@@ -1256,6 +1330,304 @@ button, a {
 .btn-card-action.secondary {
   background: var(--bg-canvas);
   color: var(--ink-black);
+}
+
+/* ==========================================================================
+   VIDEO EDITING & MOTION CRAFT SECTION (TechnoRevv Showcase)
+   ========================================================================== */
+.video-section {
+  background-color: var(--cyan-light);
+  padding: 6.5rem 0 7rem;
+  position: relative;
+  border-top: 3px solid var(--ink-black);
+}
+
+@media (max-width: 768px) {
+  .video-section {
+    padding: 4.5rem 0 5rem;
+  }
+}
+
+.video-tools-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.video-tool-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--bg-white);
+  border: 2px solid var(--ink-black);
+  border-radius: var(--radius-pill);
+  padding: 0.45rem 1rem;
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: var(--ink-black);
+  box-shadow: 2.5px 2.5px 0px var(--ink-black);
+  transition: transform 0.2s var(--ease-bounce), box-shadow 0.2s;
+}
+
+.video-tool-badge:hover {
+  transform: translateY(-2px);
+  box-shadow: 4px 4px 0px var(--ink-black);
+}
+
+.video-tool-icon {
+  font-size: 1.1rem;
+}
+
+.video-reels-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 3.5rem;
+}
+
+@media (max-width: 1024px) {
+  .video-reels-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 680px) {
+  .video-reels-grid {
+    grid-template-columns: 1fr;
+    max-width: 380px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.video-phone-card {
+  background: var(--bg-white);
+  border: 3px solid var(--ink-black);
+  border-radius: 28px;
+  padding: 1.5rem;
+  box-shadow: 6px 6px 0px var(--ink-black);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s var(--ease-bounce), box-shadow 0.3s;
+}
+
+.video-phone-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 9px 9px 0px var(--ink-black);
+}
+
+@media (max-width: 768px) {
+  .video-phone-card {
+    padding: 1.25rem;
+    border-radius: 24px;
+    box-shadow: 4px 4px 0px var(--ink-black);
+  }
+}
+
+.phone-mockup {
+  background: var(--ink-black);
+  border-radius: 24px;
+  padding: 0.65rem;
+  position: relative;
+  border: 2.5px solid var(--ink-black);
+  box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.15);
+  margin-bottom: 1.25rem;
+}
+
+.phone-mockup__notch {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  height: 14px;
+  margin-bottom: 0.4rem;
+}
+
+.phone-mockup__speaker {
+  width: 38px;
+  height: 4px;
+  background: #333333;
+  border-radius: 4px;
+}
+
+.phone-mockup__camera {
+  width: 7px;
+  height: 7px;
+  background: #252525;
+  border-radius: 50%;
+}
+
+.phone-mockup__screen {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  background: #000000;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.phone-mockup__iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+
+.video-phone-card__meta {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.video-phone-card__meta-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.6rem;
+}
+
+.video-phone-card__reel-num {
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: var(--ink-muted);
+  letter-spacing: 0.05em;
+}
+
+.video-phone-card__title {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 800;
+  letter-spacing: -0.015em;
+  line-height: 1.25;
+  color: var(--ink-black);
+  margin-bottom: 0.45rem;
+}
+
+.video-phone-card__desc {
+  font-size: 0.9rem;
+  color: var(--ink-muted);
+  line-height: 1.45;
+  flex: 1;
+}
+
+.technorevv-banner {
+  margin-top: 3.5rem;
+  background: var(--yellow-hero);
+  border: 3px solid var(--ink-black);
+  border-radius: var(--radius-card);
+  box-shadow: 7px 7px 0px var(--ink-black);
+  padding: 2.25rem 2.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .technorevv-banner {
+    padding: 1.75rem 1.25rem;
+    border-radius: 22px;
+    box-shadow: 4px 4px 0px var(--ink-black);
+  }
+}
+
+.technorevv-banner__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.technorevv-banner__content {
+  max-width: 600px;
+  flex: 1;
+  min-width: 280px;
+}
+
+.technorevv-banner__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 2.5vw, 1.85rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  color: var(--ink-black);
+  margin-bottom: 0.6rem;
+}
+
+.technorevv-banner__desc {
+  font-size: 1rem;
+  color: rgba(18, 18, 18, 0.85);
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+.technorevv-banner__actions {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 640px) {
+  .technorevv-banner__actions {
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .technorevv-banner__actions .button-alt,
+  .technorevv-banner__actions .btn-card-action {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .video-tools-row {
+    gap: 0.45rem;
+  }
+  .video-tool-badge {
+    padding: 0.35rem 0.75rem;
+    font-size: 0.8rem;
+  }
+  .video-reels-grid {
+    margin-top: 2rem;
+    gap: 1.25rem;
+  }
+  .video-phone-card {
+    padding: 1rem;
+    border-radius: 20px;
+    border-width: 2.5px;
+    box-shadow: 4px 4px 0px var(--ink-black);
+  }
+  .phone-mockup {
+    padding: 0.45rem;
+    border-radius: 18px;
+  }
+  .phone-mockup__screen {
+    border-radius: 12px;
+  }
+  .technorevv-banner {
+    margin-top: 2.25rem;
+    padding: 1.5rem 1rem;
+    border-radius: 20px;
+    border-width: 2.5px;
+    box-shadow: 4px 4px 0px var(--ink-black);
+  }
+  .technorevv-banner__title {
+    font-size: 1.3rem;
+  }
+  .technorevv-banner__desc {
+    font-size: 0.9rem;
+  }
 }
 
 /* ==========================================================================
@@ -2190,6 +2562,12 @@ button, a {
   background: var(--magenta-primary);
   border-color: var(--magenta-primary);
   transform: translateY(-2px);
+}
+
+.footer-social-pill.is--fiverr:hover {
+  background: #1DBF73;
+  border-color: #1DBF73;
+  color: var(--bg-white);
 }
 
 .footer-bottom {

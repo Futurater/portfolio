@@ -1,12 +1,42 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import './App.css';
 
 const GITHUB_USER = 'Futurater';
 const EMAIL_ADDRESS = 'santoshpallavi107@gmail.com';
 const LINKEDIN_URL = 'https://www.linkedin.com/in/sagar-varma-760553297/';
-const GITHUB_URL = 'https://github.com/Futurater';
+const GITHUB_URL = `https://github.com/${GITHUB_USER}`;
+const TECHNOREVV_URL = 'https://technorevv.carrd.co';
+const TECHNOREVV_IG = 'https://www.instagram.com/technorevv/';
+const FIVERR_URL = 'https://www.fiverr.com/s/Em073Y8';
 
 const SI = 'https://cdn.simpleicons.org';
+
+const VIDEO_SHORTS = [
+  {
+    id: '0jkIm4dLyNs',
+    title: 'High-Retention Hook & Visual Pacing',
+    category: 'Short-Form Reel',
+    tag: '⚡ 100% Retention Focus',
+    desc: 'Clean jump-cuts, rhythmic sound design, and micro pattern-interrupts engineered to hook viewers in the first 3 seconds.',
+    tools: ['Premiere Pro', 'Sound FX', 'Pacing'],
+  },
+  {
+    id: 'YZJxc_s3E0E',
+    title: 'Kinetic Subtitles & Motion Graphics',
+    category: 'Motion Typography',
+    tag: '🔥 Dynamic Subtitles',
+    desc: 'Attention-grabbing animated typography with styled keyword highlights, custom color coding, and synchronized audio markers.',
+    tools: ['After Effects', 'Typography', 'Keyframes'],
+  },
+  {
+    id: '1rSd3pEVx7g',
+    title: 'Fast-Paced Explainer & Creator Flow',
+    category: 'YouTube & Social Cut',
+    tag: '🎬 Clean Flow',
+    desc: 'Balancing crisp informational flow with the creator’s authentic tone, seamless B-roll overlays, and polished graphics.',
+    tools: ['Premiere Pro', 'After Effects', 'Color Grade'],
+  },
+];
 
 const PROJECTS = [
   {
@@ -175,6 +205,7 @@ export default function App() {
 
           <nav className="header__nav">
             <button className="nav-link" onClick={() => scrollToSection('projects')}>Featured Projects</button>
+            <button className="nav-link" onClick={() => scrollToSection('video-editing')}>Video &amp; Motion</button>
             <button className="nav-link" onClick={() => scrollToSection('process')}>How I Build</button>
             <button className="nav-link" onClick={() => scrollToSection('stack')}>Tech Stash</button>
             <button className="nav-link" onClick={() => scrollToSection('achievements')}>Hall of Fame</button>
@@ -219,6 +250,9 @@ export default function App() {
               <button className="mobile-drawer__link" onClick={() => scrollToSection('projects')}>
                 <span className="mobile-drawer__icon">📚</span> Featured Projects
               </button>
+              <button className="mobile-drawer__link" onClick={() => scrollToSection('video-editing')}>
+                <span className="mobile-drawer__icon">🎬</span> Video &amp; Motion
+              </button>
               <button className="mobile-drawer__link" onClick={() => scrollToSection('process')}>
                 <span className="mobile-drawer__icon">🛠️</span> How I Build
               </button>
@@ -240,6 +274,9 @@ export default function App() {
               <a href={LINKEDIN_URL} target="_blank" rel="noreferrer" className="mobile-drawer__social">
                 <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
                 <span>LinkedIn</span>
+              </a>
+              <a href={FIVERR_URL} target="_blank" rel="noreferrer" className="mobile-drawer__social is--fiverr">
+                <span>🟢 Fiverr</span>
               </a>
               <a href={`mailto:${EMAIL_ADDRESS}`} className="mobile-drawer__social is--email">
                 <span>✉️ Email</span>
@@ -297,7 +334,7 @@ export default function App() {
                   <span>🚀</span> MERN + Python AI
                 </div>
                 <div className="sticker-badge center-right">
-                  <span>📍</span> Bengaluru, IN
+                  <span>🎬</span> Video Editor @ TechnoRevv
                 </div>
                 <div className="sticker-badge bottom-right">
                   <span>🏆</span> Hackfest Finalist
@@ -310,7 +347,7 @@ export default function App() {
                 <div className="developer-card-frame__bottom">
                   <div>
                     <div className="developer-card-frame__name">C A Sagar Varma</div>
-                    <div className="developer-card-frame__role">Full-Stack Engineer · AI Builder</div>
+                    <div className="developer-card-frame__role">Full-Stack Engineer · Video Editor &amp; AI Builder</div>
                   </div>
                   <div style={{ fontSize: '1.6rem' }}>💻</div>
                 </div>
@@ -324,25 +361,27 @@ export default function App() {
       <div className="marquee-wrap">
         <div className="marquee-track">
           {[1, 2].map((k) => (
-            <div key={k} style={{ display: 'flex' }}>
-              <div className="marquee-item">
-                <span>FULL-STACK ENGINEERING</span>
-                <span className="star-glyph">★</span>
-                <span>REACT 19</span>
-                <span className="star-glyph">★</span>
-                <span>GOOGLE GEMINI LLM</span>
-                <span className="star-glyph">★</span>
-                <span>NODE.JS &amp; EXPRESSED APIS</span>
-                <span className="star-glyph">★</span>
-                <span>PYTHON MICROSERVICES</span>
-                <span className="star-glyph">★</span>
-                <span>MONGODB PERSISTENCE</span>
-                <span className="star-glyph">★</span>
-                <span>DOCKER CONTAINERIZATION</span>
-                <span className="star-glyph">★</span>
-                <span>COLLECTIBLE UI DESIGN</span>
-                <span className="star-glyph">★</span>
-              </div>
+            <div key={k} className="marquee-group">
+              <span>FULL-STACK ENGINEERING</span>
+              <span className="star-glyph">★</span>
+              <span>REACT 19</span>
+              <span className="star-glyph">★</span>
+              <span>GOOGLE GEMINI LLM</span>
+              <span className="star-glyph">★</span>
+              <span>VIDEO EDITING &amp; MOTION CRAFT</span>
+              <span className="star-glyph">★</span>
+              <span>PREMIERE PRO &amp; AFTER EFFECTS</span>
+              <span className="star-glyph">★</span>
+              <span>NODE.JS &amp; EXPRESS APIS</span>
+              <span className="star-glyph">★</span>
+              <span>PYTHON MICROSERVICES</span>
+              <span className="star-glyph">★</span>
+              <span>MONGODB PERSISTENCE</span>
+              <span className="star-glyph">★</span>
+              <span>DOCKER CONTAINERIZATION</span>
+              <span className="star-glyph">★</span>
+              <span>COLLECTIBLE UI DESIGN</span>
+              <span className="star-glyph">★</span>
             </div>
           ))}
         </div>
@@ -439,6 +478,147 @@ export default function App() {
                 </div>
               </article>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* "VIDEO EDITING & MOTION CRAFT" SECTION (TechnoRevv Showcase) */}
+      <section id="video-editing" className="video-section">
+        <div className="u-container">
+          <div className="section-header-block">
+            <span className="section-header__subtitle">Visual Storytelling &amp; High-Retention Pacing</span>
+            <h2 className="section-header__title">Video Editing &amp; Motion Craft</h2>
+            <p className="section-header__desc">
+              Hi 👋 I’m Sagar — a passionate video editor specializing in creating scroll-stopping, high-retention content for YouTube, Shorts, and Reels. I focus on clean cuts, attention-grabbing subtitles, and maintaining the creator’s authentic vibe while boosting viewer retention.
+            </p>
+
+            {/* Quick Tools & Skills Pills */}
+            <div className="video-tools-row">
+              <div className="video-tool-badge">
+                <span className="video-tool-icon">🎬</span>
+                <span>Adobe Premiere Pro</span>
+              </div>
+              <div className="video-tool-badge">
+                <span className="video-tool-icon">✨</span>
+                <span>Adobe After Effects</span>
+              </div>
+              <div className="video-tool-badge">
+                <span className="video-tool-icon">🔤</span>
+                <span>Kinetic Subtitles</span>
+              </div>
+              <div className="video-tool-badge">
+                <span className="video-tool-icon">🔊</span>
+                <span>Sound Design &amp; FX</span>
+              </div>
+              <div className="video-tool-badge">
+                <span className="video-tool-icon">📈</span>
+                <span>Retention Optimization</span>
+              </div>
+            </div>
+          </div>
+
+          {/* 3 Vertical Smartphone Reel Mockup Cards */}
+          <div className="video-reels-grid">
+            {VIDEO_SHORTS.map((short, idx) => (
+              <div key={short.id} className="video-phone-card">
+                <div className="phone-mockup">
+                  <div className="phone-mockup__notch">
+                    <div className="phone-mockup__speaker"></div>
+                    <div className="phone-mockup__camera"></div>
+                  </div>
+                  <div className="phone-mockup__screen">
+                    <iframe
+                      src={`https://www.youtube-nocookie.com/embed/${short.id}?rel=0&modestbranding=1`}
+                      title={short.title}
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      allowFullScreen
+                      className="phone-mockup__iframe"
+                      loading="lazy"
+                    />
+                  </div>
+                </div>
+
+                <div className="video-phone-card__meta">
+                  <div className="video-phone-card__meta-top">
+                    <span className="badge-neon yellow">{short.tag}</span>
+                    <span className="video-phone-card__reel-num">REEL #{idx + 1}</span>
+                  </div>
+                  <h3 className="video-phone-card__title">{short.title}</h3>
+                  <p className="video-phone-card__desc">{short.desc}</p>
+
+                  <div className="genre-pills" style={{ marginTop: '0.75rem', marginBottom: '1rem' }}>
+                    {short.tools.map((tool) => (
+                      <span key={tool} className="genre-pill highlight">{tool}</span>
+                    ))}
+                  </div>
+
+                  <a
+                    href={`https://youtube.com/shorts/${short.id}`}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="btn-card-action secondary"
+                    style={{ width: '100%', justifyContent: 'center', textAlign: 'center' }}
+                  >
+                    ▶️ Watch on YouTube ↗
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* TechnoRevv Feature Banner / Studio Card */}
+          <div className="technorevv-banner">
+            <div className="technorevv-banner__inner">
+              <div className="technorevv-banner__content">
+                <div className="badge-neon green" style={{ width: 'fit-content', marginBottom: '0.75rem' }}>
+                  ⚡ TECHNOREVV CREATIVE STUDIO
+                </div>
+                <h3 className="technorevv-banner__title">
+                  Want scroll-stopping videos for your channel or brand?
+                </h3>
+                <p className="technorevv-banner__desc">
+                  Explore my dedicated video editing landing page featuring long-form edits, thumbnail designs, and creator collaborations.
+                </p>
+              </div>
+
+              <div className="technorevv-banner__actions">
+                <a
+                  href={FIVERR_URL}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="button-alt is--green"
+                  style={{ whiteSpace: 'nowrap' }}
+                >
+                  <span className="button-alt__text-wrap">Order on Fiverr</span>
+                  <span className="button-alt__icon-wrap">↗</span>
+                </a>
+                <a
+                  href={TECHNOREVV_URL}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="btn-card-action secondary"
+                  style={{ background: 'var(--bg-white)', whiteSpace: 'nowrap', justifyContent: 'center' }}
+                >
+                  🎬 TechnoRevv Portfolio ↗
+                </a>
+                <a
+                  href={TECHNOREVV_IG}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="btn-card-action secondary"
+                  style={{ background: 'var(--bg-white)', whiteSpace: 'nowrap', justifyContent: 'center' }}
+                >
+                  📸 Instagram @technorevv ↗
+                </a>
+                <a
+                  href={`mailto:${EMAIL_ADDRESS}?subject=Video%20Editing%20Project%20Inquiry`}
+                  className="btn-card-action secondary"
+                  style={{ background: 'var(--bg-white)', whiteSpace: 'nowrap', justifyContent: 'center' }}
+                >
+                  ✉️ Email Inquiry
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -585,6 +765,9 @@ export default function App() {
                 </a>
                 <a href={LINKEDIN_URL} target="_blank" rel="noreferrer" className="footer-social-pill">
                   <span>💼 LinkedIn</span>
+                </a>
+                <a href={FIVERR_URL} target="_blank" rel="noreferrer" className="footer-social-pill is--fiverr">
+                  <span>🟢 Fiverr</span>
                 </a>
                 <a href={`mailto:${EMAIL_ADDRESS}`} className="footer-social-pill">
                   <span>✉️ Email</span>
